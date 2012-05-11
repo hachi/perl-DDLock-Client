@@ -27,9 +27,16 @@ DDLock::Client - Client library for distributed lock daemon
 This is a client library for ddlockd, a distributed lock daemon not entirely
 unlike a very simplified version of the CPAN module IPC::Locker.
 
+This can be used as a drop in replacment for the unreleased DDLockClient class
+that some of us in the world may be using. Simply replace the class name.
+
 =head1 EXPORTS
 
 Nothing.
+
+=head1 MAINTAINER
+
+Jonathan Steinert <hachi@cpan.org>
 
 =head1 AUTHOR
 
