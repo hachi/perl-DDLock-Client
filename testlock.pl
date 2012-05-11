@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 use lib "blib/lib";
-use DDLockClient ();
+use DDLock::Client ();
 use Data::Dumper ();
 
 $Data::Dumper::Terse = 1;
@@ -17,13 +17,13 @@ my $DDServers =  [
 
 foreach my $servers ( $DDServers, [] ) {
 	print "Creating client...";
-	my $cl = new DDLockClient ( servers => $servers )
-		or die $DDLockClient::Error;
+	my $cl = new DDLock::Client ( servers => $servers )
+		or die $DDLock::Client::Error;
 	print "done:\n";
 
 	print "Creating a 'foo' lock...";
 	my $lock = $cl->trylock( "foo" )
-		or print "Error: $DDLockClient::Error\n";
+		or print "Error: $DDLock::Client::Error\n";
 	print "done.\n";
 
 	if ( my $pid = fork ) {
@@ -31,7 +31,7 @@ foreach my $servers ( $DDServers, [] ) {
 	} else {
 		print "Trying to create a 'foo' lock in process $$...";
 		my $lock2 = $cl->trylock( "foo" )
-			or print "Error: $DDLockClient::Error\n";
+			or print "Error: $DDLock::Client::Error\n";
 		print "done:\n";
 		exit;
 	}

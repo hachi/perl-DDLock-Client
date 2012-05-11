@@ -3,10 +3,6 @@
 use strict;
 use Test;
 
-BEGIN { plan tests => 3 }
+BEGIN { plan tests => 1 }
 
-ok( eval { require DDLockClient; 1 } );
-ok( exists $::{"DDLockClient::"} );
-ok( exists $::{"DDLock::"} );
-
-
+ok( eval { require DDLock::Client; 1 } );

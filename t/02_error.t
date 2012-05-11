@@ -3,14 +3,14 @@
 use strict;
 use warnings;
 use Test::More;
-use DDLockClient;
+use DDLock::Client;
 
 unless (eval { require Error }) {
     plan skip_all => 'Test require Error';
 } 
 plan tests => 4;
 
-my $cl = DDLockClient->new( servers => [ 'localhost' ] );
+my $cl = DDLock::Client->new( servers => [ 'localhost' ] );
 ok($cl, "Got a client object");
 
 eval {

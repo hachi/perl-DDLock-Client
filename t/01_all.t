@@ -3,11 +3,11 @@
 use strict;
 use Test::More;
 
-use DDLockClient;
+use DDLock::Client;
 
 BEGIN { plan tests => 14 }
 
-my $cl = DDLockClient->new( servers => [ 'localhost' ] );
+my $cl = DDLock::Client->new( servers => [ 'localhost' ] );
 ok($cl, "Got a client object");
 
 {
@@ -37,7 +37,7 @@ ok($cl, "Got a client object");
     ok($lock, "Got a lock for 'test_c'");
     my $lock2 = $cl->trylock('test_c');
     ok(!defined($lock2), "Got no lock for 'test_c' again without release");
-    diag "Error was '$DDLockClient::Error'";
+    diag "Error was '$DDLock::Client::Error'";
 }
 
 {

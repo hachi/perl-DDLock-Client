@@ -2,7 +2,7 @@
 
 use Fcntl;
 use lib "blib/lib";
-use DDLockClient ();
+use DDLock::Client ();
 use Data::Dumper ();
 
 $Data::Dumper::Terse = 1;
@@ -18,8 +18,8 @@ my $DDServers =  [
 
 foreach my $servers ( $DDServers, [] ) {
 	print "Creating client (@$servers)...";
-	my $cl = new DDLockClient ( servers => $servers )
-		or die $DDLockClient::Error;
+	my $cl = new DDLock::Client ( servers => $servers )
+		or die $DDLock::Client::Error;
 	print "done:\n";
 
         for ( my $i = 0; $i < 10; $i++ ) {
