@@ -1,4 +1,4 @@
-###########################################################################
+package DDLock::Client;
 
 =head1 NAME
 
@@ -27,10 +27,6 @@ DDLock::Client - Client library for distributed lock daemon
 This is a client library for ddlockd, a distributed lock daemon not entirely
 unlike a very simplified version of the CPAN module IPC::Locker.
 
-=head1 REQUIRES
-
-L<Socket>
-
 =head1 EXPORTS
 
 Nothing.
@@ -43,7 +39,6 @@ Copyright (c) 2004 Danga Interactive, Inc.
 
 =cut
 
-package DDLock::Client;
 use strict;
 use Socket;
 
